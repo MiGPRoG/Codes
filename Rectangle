@@ -1,0 +1,37 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Rectangle
+{
+public:
+    float a, b;
+   
+    void SetRect(float a, float b)
+    {
+        a = a;
+        b = b;
+    }
+    void GetRect()
+    {
+        cout << "a = " << a << "b = " << b << '\n';
+    }
+    void Perim()
+    {
+        cout << "Периметр = " << (a + b) * 2 << '\n';
+    }
+    void Plosh()
+    {
+        cout << "Площадь = " << a * b << '\n';
+    }
+};
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    Rectangle ob;
+    ob.SetRect(0, 0);
+    ob.GetRect();
+    ob.Perim();
+    ob.Plosh();
+}
