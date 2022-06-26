@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+class Bird
+{
+private:
+	string Gender;
+	string Colour;
+	string Name;
+	int Age;
+	double Mass;
+	double v;
+public:
+	Bird()
+	{
+		Mass = 0;
+	}
+	Bird(int m)
+	{
+		Mass = m;
+	}
+	virtual ~Bird() {}
+	int GetM() const
+	{
+		return Mass;
+	}
+	string GetGender() const
+	{
+		return Gender;
+	}
+	string GetColour() const
+	{
+		return Colour;
+	}
+	float GetV() const
+	{
+		return v;
+	}
+	void Show()
+	{
+		cout << "Птица: " << Name << '\n' << "Возраст: " << v << '\n' << "Вес: " << Mass << '\n' << "Пол: " << Gender << '\n' << "Цвет: " << Colour << '\n';
+		ofstream fout("info2.txt");
+		fout << "Птица: " << Name << "\n" << "Возраст: " << v << "\n" << "Вес: " << Mass << "\n" << "Пол: " << '\n' << "Окрас: " << Colour << "\n";
+	}
+	Bird operator +(Bird ob)
+	{
+		return Mass + ob.Mass;
+	}
+};
+
+class Info : public Bird
+{
+protected:
+	double Growth;
+public:
+	Info() : Bird() {}
+	Info(int m, double g) : Bird(m)
+	{
+		Growth = g;
+	}
+	~Info() {}
+	double GetGrowth() const
+	{
+		return Growth;
+	}
+	void Show()
+	{
+		cout << "Рост: " << Growth << '\n';
+		ofstream fout("info2.txt");
+		fout << "Рост: " << Growth << '\n';
+	}
+};
+
+
+int main()
+{
+	setlocale(LC_ALL, "RU");
+	Info a(12, 1);
+	a.Show();
+	Info a1(11, 3);
+	a1.Show();
+	Bird b1(5), b2(3);
+	Bird b3;
+	b3 = b1 + b2;
+	b3.Show();
+}
