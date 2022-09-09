@@ -1,0 +1,421 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization.Formatters;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _08._09._22
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Начать игру?(да/нет)");
+            string otvet = Console.ReadLine();
+            while (otvet == "да")
+            {
+                int oh = 1;
+                int[,] b = new int[3, 3];
+                Console.WriteLine("Вспомогательная таблица:");
+                for (int u = 0; u < 3; u++)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        b[u, i] = oh;
+                        Console.Write(b[u, i] + " ");
+                        oh++;
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                string[,] a = new string[3, 3];
+                for (int u = 0; u < 3; u++)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        a[u, i] = ".";
+                        Console.Write(a[u, i] + " ");
+                    }
+                    Console.WriteLine();
+                }
+                while (otvet == "да")
+                {
+                    int s = Convert.ToInt32(Console.ReadLine());
+                    if (s == 1)
+                    {
+                        a[0, 0] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 2)
+                    {
+                        a[0, 1] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 3)
+                    {
+                        a[0, 2] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 4)
+                    {
+                        a[1, 0] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 5)
+                    {
+                        a[1, 1] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 6)
+                    {
+                        a[1, 2] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 7)
+                    {
+                        a[2, 0] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 8)
+                    {
+                        a[2, 1] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+
+                    if (s == 9)
+                    {
+                        a[2, 2] = "x";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (s > 9 && s < 0)
+                    {
+                        Console.WriteLine("Ошибка!");
+                        Console.ReadKey();
+                    }
+                    if ("x" == a[0, 0] && "x" == a[1, 1] && "x" == a[2, 2] || "x" == a[0, 2] && "x" == a[1, 1] && "x" == a[2, 0] || "x" == a[0, 0] && "x" == a[1, 0] && "x" == a[2, 0] || "x" == a[0, 1] && "x" == a[1, 1] && "x" == a[2, 1] || "x" == a[0, 2] && "x" == a[1, 2] && "x" == a[2, 2] || "x" == a[0, 0] && "x" == a[0, 1] && "x" == a[0, 2] || "x" == a[1, 0] && "x" == a[1, 1] && "x" == a[1, 2] || "x" == a[2, 0] && "x" == a[2, 1] && "x" == a[2, 2])
+                    {
+                        Console.WriteLine("Крестик выиграл!!");
+                        Console.WriteLine("Начать заново?(да/нет)");
+                        otvet = Console.ReadLine();
+                        oh = 1;
+                        Console.WriteLine("Вспомогательная таблица:");
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                b[u, i] = oh;
+                                Console.Write(b[u, i] + " ");
+                                oh++;
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                a[u, i] = ".";
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if ("." != a[0, 0] && "." != a[0, 1] && "." != a[0, 2] && "." != a[1, 0] && "." != a[1, 1] && "." != a[1, 2] && "." != a[2, 0] && "." != a[2, 1] && "." != a[2, 2])
+                    {
+                        Console.WriteLine("Ничья!!!");
+                        Console.WriteLine("Начать заново?(да/нет)");
+                        otvet = Console.ReadLine();
+                        oh = 1;
+                        Console.WriteLine("Вспомогательная таблица:");
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                b[u, i] = oh;
+                                Console.Write(b[u, i] + " ");
+                                oh++;
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                a[u, i] = ".";
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    Console.WriteLine();
+                    int ss = Convert.ToInt32(Console.ReadLine());
+                    if (ss == 1)
+                    {
+                        a[0, 0] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 2)
+                    {
+                        a[0, 1] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 3)
+                    {
+                        a[0, 2] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 4)
+                    {
+                        a[1, 0] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 5)
+                    {
+                        a[1, 1] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 6)
+                    {
+                        a[1, 2] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 7)
+                    {
+                        a[2, 0] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 8)
+                    {
+                        a[2, 1] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == 9)
+                    {
+                        a[2, 2] = "o";
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if ("o" == a[0, 0] && "o" == a[1, 1] && "o" == a[2, 2] || "o" == a[0, 2] && "o" == a[1, 1] && "o" == a[2, 0] || "o" == a[0, 0] && "o" == a[1, 0] && "o" == a[2, 0] || "o" == a[0, 1] && "o" == a[1, 1] && "o" == a[2, 1] || "o" == a[0, 2] && "o" == a[1, 2] && "o" == a[2, 2] || "o" == a[0, 0] && "o" == a[0, 1] && "o" == a[0, 2] || "o" == a[1, 0] && "o" == a[1, 1] && "o" == a[1, 2] || "o" == a[2, 0] && "o" == a[2, 1] && "o" == a[2, 2])
+                    {
+                        Console.WriteLine("Нолик выиграл!!");
+                        Console.WriteLine("Начать заново?(да/нет)");
+                        otvet = Console.ReadLine();
+                        oh = 1;
+                        Console.WriteLine("Вспомогательная таблица:");
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                b[u, i] = oh;
+                                Console.Write(b[u, i] + " ");
+                                oh++;
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                a[u, i] = ".";
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if (ss == s)
+                    {
+                        Console.WriteLine("Вы жульничиете!");
+                        Console.WriteLine("Начать заново?(да/нет)");
+                        otvet = Console.ReadLine();
+                        oh = 1;
+                        Console.WriteLine("Вспомогательная таблица:");
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                b[u, i] = oh;
+                                Console.Write(b[u, i] + " ");
+                                oh++;
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                a[u, i] = ".";
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    if ("." != a[0, 0] && "." != a[0, 1] && "." != a[0, 2] && "." != a[1, 0] && "." != a[1, 1] && "." != a[1, 2] && "." != a[2, 0] && "." != a[2, 1] && "." != a[2, 2])
+                    {
+                        Console.WriteLine("Ничья!!!");
+                        Console.WriteLine("Начать заново?(да/нет)");
+                        otvet = Console.ReadLine();
+                        oh = 1;
+                        Console.WriteLine("Вспомогательная таблица:");
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                b[u, i] = oh;
+                                Console.Write(b[u, i] + " ");
+                                oh++;
+                            }
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine();
+                        for (int u = 0; u < 3; u++)
+                        {
+                            for (int i = 0; i < 3; i++)
+                            {
+                                a[u, i] = ".";
+                                Console.Write(a[u, i] + " ");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
